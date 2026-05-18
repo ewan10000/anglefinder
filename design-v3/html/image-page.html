@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Image Angle Measurement - AngleFinder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=DM+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f9faf6",
+                        "surface-dim": "#dadad7",
+                        "primary": "#012d1d",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#c1ecd4",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-fixed": "#002114",
+                        "tertiary": "#401b1b",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1ee",
+                        "surface-bright": "#f9faf6",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary-container": "#d29895",
+                        "on-secondary-container": "#436b58",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#a5d0b9",
+                        "inverse-primary": "#a5d0b9",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-fixed": "#331111",
+                        "on-secondary-fixed-variant": "#274e3d",
+                        "secondary": "#3f6653",
+                        "surface-tint": "#3f6653",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "inverse-surface": "#2f312f",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1b4332",
+                        "on-primary-fixed": "#002114",
+                        "surface-container-high": "#e8e8e5",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-primary-container": "#86af99",
+                        "surface": "#f9faf6",
+                        "surface-container-highest": "#e2e3e0",
+                        "outline": "#717973",
+                        "on-background": "#1a1c1a",
+                        "tertiary-container": "#5a302f",
+                        "surface-container-low": "#f3f4f1",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e3e0",
+                        "surface-container": "#eeeeeb",
+                        "on-tertiary-fixed-variant": "#673a39",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#f5b7b4",
+                        "secondary-container": "#beead1",
+                        "tertiary-fixed": "#ffdad8",
+                        "on-surface": "#1a1c1a",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "container-max-width": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["DM Sans"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-md": ["DM Sans"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-xl": ["Space Grotesk"],
+                        "data-label": ["JetBrains Mono"],
+                        "data-display": ["JetBrains Mono"],
+                        "body-lg": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-label": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "data-display": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .upload-zone:hover {
+            background-color: #fcfcfc;
+            border-color: #717973;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-container border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+<nav class="flex justify-between items-center w-full h-20 px-margin-desktop max-w-container-max-width mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">AngleFinder</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-data-label text-data-label text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Protractor</a>
+<a class="font-data-label text-data-label text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Calculator</a>
+<a class="font-data-label text-data-label text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1" href="#">Image</a>
+<a class="font-data-label text-data-label text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">FAQ</a>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max-width mx-auto px-margin-desktop py-12">
+<!-- Hero Tool Area -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-10 mb-16 shadow-sm">
+<div class="flex flex-col gap-6 mb-8">
+<div>
+<h1 class="font-headline-lg text-[36px] text-on-surface mb-2">Measure Angle on Image</h1>
+<p class="font-body-lg text-on-surface-variant">Upload a photo, click three points, get the exact angle.</p>
+</div>
+<!-- Privacy Notice -->
+<div class="bg-[#F0FDF4] border-l-4 border-primary p-4 rounded-r flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+<p class="font-body-md text-on-surface-variant">Images are processed locally in your browser. Nothing is uploaded to our servers.</p>
+</div>
+</div>
+<!-- Upload Zone -->
+<div class="upload-zone border-2 border-dashed border-outline-variant rounded-xl p-16 flex flex-col items-center justify-center gap-4 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-outline text-5xl" data-icon="cloud_upload">cloud_upload</span>
+<div class="text-center">
+<p class="font-headline-md text-on-surface">Drop an image or click to upload</p>
+<p class="font-data-label text-on-surface-variant mt-2">SUPPORTED FORMATS: JPG, PNG, WEBP, GIF</p>
+</div>
+</div>
+<!-- Simulated Post-Upload Canvas -->
+<div class="mt-12">
+<div class="relative bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden h-[500px] flex items-center justify-center">
+<img alt="" class="w-full h-full object-cover opacity-60" data-alt="A clean high-resolution photograph of a technical architectural blueprint with complex structural lines and geometric measurements. The lighting is bright and even, highlighting the clinical engineering aesthetic. The primary color palette features deep forest greens and sharp white highlights, reflecting a professional measuring tool environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiZx5YlikflIg-HRp3etOOkNunKnw7WgOmai7GKuZADveVkAQgPxqtloSapeaM6RGO2FB8DOOF7Oodc78dS9bo8irxi91LyGXpqYjIFCMmpgGOtHvxijZJA0Cb4_vbtYWRKn1vDf4YAAE07XrrdtWVxvW6JIxsoSh2i4iC5_oGXwbU5wpM-IFNLs8bcmCG2jHhscEUZ5xEbsxehyQHZ5nFxBRlLAJMZdJgmMCwjRgKT8yFrDDofmpEEkK3J4gmblR7MFzljUNriOU"/>
+<!-- Overlay Instructions -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 bg-on-surface/90 text-surface px-6 py-2 rounded-full font-body-sm shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                        Click 3 points to measure the angle between them.
+                    </div>
+<!-- Simulated Points -->
+<div class="absolute top-[20%] left-[30%] w-8 h-8 bg-primary text-surface rounded-full flex items-center justify-center font-data-label shadow-md border-2 border-surface">1</div>
+<div class="absolute top-[50%] left-[50%] w-8 h-8 bg-primary text-surface rounded-full flex items-center justify-center font-data-label shadow-md border-2 border-surface">2</div>
+<div class="absolute top-[40%] left-[70%] w-8 h-8 bg-primary text-surface rounded-full flex items-center justify-center font-data-label shadow-md border-2 border-surface">3</div>
+<!-- SVG Angle Arc -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<path d="M 320 120 L 640 250 L 890 200" fill="none" stroke="#1B4332" stroke-dasharray="8 4" stroke-width="3"></path>
+<circle cx="640" cy="250" fill="rgba(27, 67, 50, 0.1)" r="40" stroke="#1B4332" stroke-width="1"></circle>
+</svg>
+</div>
+<!-- Result Bar -->
+<div class="mt-8 flex items-center justify-between border-t border-outline-variant pt-8">
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="font-data-label text-on-surface-variant uppercase">Current Angle</span>
+<span class="font-data-display text-4xl text-primary font-bold">45.00°</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant pl-8">
+<span class="font-data-label text-on-surface-variant uppercase">Complementary</span>
+<span class="font-data-display text-2xl text-on-surface">135.00°</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="bg-[#E63946] text-white px-8 py-3 rounded font-headline-md font-bold hover:brightness-110 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+                            Analyze
+                        </button>
+<button class="bg-surface-container-low border border-outline-variant text-on-surface px-8 py-3 rounded font-headline-md font-bold hover:bg-surface-container-high transition-all">
+                            Reset
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- How to Use Section -->
+<section class="mb-24">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-on-surface mb-2">How to Use</h2>
+<div class="w-16 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<div class="bg-white border border-outline-variant p-8 rounded-lg flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-secondary-container text-primary rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="image">image</span>
+</div>
+<h3 class="font-headline-md mb-4">1. Upload Image</h3>
+<p class="font-body-md text-on-surface-variant">Click the upload zone or drag your image file directly onto the canvas area.</p>
+</div>
+<div class="bg-white border border-outline-variant p-8 rounded-lg flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-secondary-container text-primary rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="ads_click">ads_click</span>
+</div>
+<h3 class="font-headline-md mb-4">2. Place Markers</h3>
+<p class="font-body-md text-on-surface-variant">Click three points: the first arm point, the vertex (angle center), and the second arm point.</p>
+</div>
+<div class="bg-white border border-outline-variant p-8 rounded-lg flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-secondary-container text-primary rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="straighten">straighten</span>
+</div>
+<h3 class="font-headline-md mb-4">3. Precision Angle</h3>
+<p class="font-body-md text-on-surface-variant">The tool instantly calculates and displays the exact angle with two-decimal precision.</p>
+</div>
+</div>
+</section>
+<!-- Related Tools Section -->
+<section class="mb-16">
+<h2 class="font-headline-md text-on-surface mb-6">Other Precision Tools</h2>
+<div class="grid md:grid-cols-2 gap-gutter">
+<a class="group bg-white border border-outline-variant p-6 rounded-lg flex items-center justify-between hover:border-primary transition-all" href="/protractor">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="architecture">architecture</span>
+<div>
+<p class="font-headline-md group-hover:text-primary transition-colors">On-Screen Protractor</p>
+<p class="font-body-sm text-on-surface-variant">Transparent digital protractor for web overlay.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="group bg-white border border-outline-variant p-6 rounded-lg flex items-center justify-between hover:border-primary transition-all" href="/calculator">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="function">function</span>
+<div>
+<p class="font-headline-md group-hover:text-primary transition-colors">Trigonometry Calculator</p>
+<p class="font-body-sm text-on-surface-variant">Solve for sides and angles using Sin/Cos/Tan laws.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline w-full py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col gap-2">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">AngleFinder</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 AngleFinder Precision Tools. All rights reserved.</p>
+</div>
+<div class="flex gap-gutter">
+<a class="font-data-label text-data-label text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Product</a>
+<a class="font-data-label text-data-label text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Methodology</a>
+<a class="font-data-label text-data-label text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Privacy</a>
+<a class="font-data-label text-data-label text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline decoration-2 underline-offset-4 transition-all duration-200" href="#">Terms</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=DM+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom shape for the protractor arc */
+        .protractor-arc {
+            stroke-dasharray: 502;
+            stroke-dashoffset: 251; /* Represents 180 degrees */
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f6f3f2",
+                      "primary-container": "#1b4332",
+                      "surface-dim": "#dcd9d9",
+                      "on-primary-fixed": "#002114",
+                      "tertiary-fixed-dim": "#f5b7b4",
+                      "surface-bright": "#fcf9f8",
+                      "on-tertiary-container": "#d29895",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary-fixed-variant": "#673a39",
+                      "secondary-fixed-dim": "#ffb3b1",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e5e2e1",
+                      "background": "#fcf9f8",
+                      "secondary-fixed": "#ffdad8",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "inverse-surface": "#313030",
+                      "surface-container-lowest": "#ffffff",
+                      "on-background": "#1c1b1b",
+                      "tertiary-container": "#5a302f",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#3f6653",
+                      "inverse-on-surface": "#f3f0ef",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#eae7e7",
+                      "on-tertiary-fixed": "#331111",
+                      "outline-variant": "#c1c8c2",
+                      "secondary": "#e63946", /* Overridden per request for Action Color */
+                      "on-secondary-fixed-variant": "#92001c",
+                      "inverse-primary": "#a5d0b9",
+                      "secondary-container": "#db313f",
+                      "primary": "#1b4332", /* Overridden per request for Brand Primary */
+                      "on-surface": "#1c1b1b",
+                      "error": "#ba1a1a",
+                      "tertiary": "#401b1b",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#f0eded",
+                      "surface": "#fcf9f8",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "on-primary": "#ffffff",
+                      "outline": "#717973",
+                      "on-surface-variant": "#414844",
+                      "tertiary-fixed": "#ffdad8",
+                      "on-secondary-fixed": "#410007",
+                      "surface-variant": "#e5e2e1",
+                      "on-primary-container": "#86af99",
+                      "primary-fixed": "#c1ecd4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "4px",
+                      "lg": "4px",
+                      "xl": "8px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "gutter": "12px",
+                      "margin-mobile": "16px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "base": "4px",
+                      "xl": "32px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "data-md": ["JetBrains Mono"],
+                      "body-sm": ["DM Sans"],
+                      "data-lg": ["JetBrains Mono"],
+                      "display-lg": ["Space Grotesk"],
+                      "body-md": ["DM Sans"],
+                      "label-caps": ["JetBrains Mono"],
+                      "headline-md": ["Space Grotesk"],
+                      "body-lg": ["DM Sans"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "data-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "data-lg": ["64px", {"lineHeight": "72px", "fontWeight": "700"}],
+                      "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["11px", {"lineHeight": "16px", "fontWeight": "700", "letterSpacing": "0.05em"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-[56px] bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-margin-mobile z-50">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+<span class="font-headline-md text-headline-md text-primary">AngleFinder</span>
+</div>
+<button class="bg-primary text-on-primary px-md py-xs rounded-full font-body-sm hover:bg-surface-container-high transition-colors active:scale-95 transition-transform">
+            Start — Free
+        </button>
+</header>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="bg-surface-container-lowest pt-[128px] pb-xl px-margin-mobile text-center">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-sm">
+                Measure Any Angle. Instantly.
+            </h1>
+<p class="font-body-md text-body-md text-on-surface/80 mb-xl">
+                Online protractor — free, no signup.
+            </p>
+<!-- Tool Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md shadow-sm mb-lg">
+<!-- Protractor Visual -->
+<div class="relative w-full aspect-video flex items-end justify-center overflow-hidden border-b border-outline-variant mb-md pb-md">
+<svg class="w-full h-auto max-w-[280px]" viewbox="0 0 200 100">
+<circle cx="100" cy="100" fill="none" r="90" stroke="#e5e2e1" stroke-width="12"></circle>
+<path d="M 10 100 A 90 90 0 0 1 190 100" fill="none" stroke="#1b4332" stroke-width="2"></path>
+<!-- Red Indicator -->
+<line stroke="#e63946" stroke-linecap="round" stroke-width="3" x1="100" x2="30" y1="100" y2="40"></line>
+<circle cx="100" cy="100" fill="#1b4332" r="4"></circle>
+</svg>
+<div class="absolute bottom-4 text-center">
+<span class="font-data-lg text-data-lg text-primary block">127°</span>
+</div>
+</div>
+<!-- Unit Toggle -->
+<div class="flex border border-outline-variant rounded-lg mb-md overflow-hidden">
+<button class="flex-1 py-xs bg-primary text-on-primary font-label-caps">°</button>
+<button class="flex-1 py-xs border-l border-outline-variant text-on-surface-variant font-label-caps hover:bg-surface-container-low">rad</button>
+<button class="flex-1 py-xs border-l border-outline-variant text-on-surface-variant font-label-caps hover:bg-surface-container-low">grad</button>
+</div>
+<!-- Fine Controls -->
+<div class="flex items-center gap-sm mb-md">
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low text-primary">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<div class="flex-1 h-12 border border-primary flex items-center justify-center bg-surface-container-lowest rounded">
+<span class="font-data-md text-data-md text-on-surface">127.5</span>
+</div>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low text-primary">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<button class="w-full h-12 bg-primary text-on-primary font-body-md rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="content_copy">content_copy</span>
+                    Copy Result
+                </button>
+</div>
+<p class="font-label-caps text-on-surface/60">
+                Results are for educational use only.
+            </p>
+</section>
+<!-- How It Works -->
+<section class="bg-surface-container-lowest py-xl px-margin-mobile">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xl text-center">How It Works</h2>
+<div class="space-y-xl">
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 shrink-0 bg-primary-container/10 flex items-center justify-center rounded text-primary">
+<span class="material-symbols-outlined" data-icon="launch">launch</span>
+</div>
+<div>
+<h3 class="font-body-md font-bold text-on-surface">1. Open Tool</h3>
+<p class="font-body-sm text-on-surface-variant">Launch the online protractor in any mobile or desktop browser without installation.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 shrink-0 bg-primary-container/10 flex items-center justify-center rounded text-primary">
+<span class="material-symbols-outlined" data-icon="drag_pan">drag_pan</span>
+</div>
+<div>
+<h3 class="font-body-md font-bold text-on-surface">2. Drag Pointer</h3>
+<p class="font-body-sm text-on-surface-variant">Simply drag the precision handle to align with your physical or digital object.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 shrink-0 bg-primary-container/10 flex items-center justify-center rounded text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h3 class="font-body-md font-bold text-on-surface">3. Get Angle</h3>
+<p class="font-body-sm text-on-surface-variant">Instantly receive decimal-accurate readings in degrees, radians, or grads.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Use Cases -->
+<section class="bg-surface-container-low py-xl px-margin-mobile">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xl text-center">Professional Precision</h2>
+<div class="space-y-md">
+<div class="bg-surface-container-lowest p-md border border-outline-variant flex gap-md items-center">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="architecture">architecture</span>
+<div>
+<h4 class="font-body-md font-bold">Architecture</h4>
+<p class="font-body-sm text-on-surface-variant">Quick draft measurements for floor plans and elevations.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md border border-outline-variant flex gap-md items-center">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="school">school</span>
+<div>
+<h4 class="font-body-md font-bold">Education</h4>
+<p class="font-body-sm text-on-surface-variant">Ideal tool for geometry students and math educators.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md border border-outline-variant flex gap-md items-center">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="build">build</span>
+<div>
+<h4 class="font-body-md font-bold">DIY Projects</h4>
+<p class="font-body-sm text-on-surface-variant">Calibrate saws or check corners during home renovation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="bg-surface-container-lowest py-xl px-margin-mobile">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xl text-center">Toolkit Features</h2>
+<div class="grid grid-cols-1 gap-md">
+<div class="border border-outline-variant p-md">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="panorama_horizontal">panorama_horizontal</span>
+<h4 class="font-body-md font-bold mb-xs">Universal Protractor</h4>
+<p class="font-body-sm text-on-surface-variant">Calibrated for all screen sizes and aspect ratios.</p>
+</div>
+<div class="border border-outline-variant p-md bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="calculate">calculate</span>
+<h4 class="font-body-md font-bold mb-xs">Scientific Calculator</h4>
+<p class="font-body-sm text-secondary font-bold">Open Tool →</p>
+</div>
+<div class="border border-outline-variant p-md bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="image">image</span>
+<h4 class="font-body-md font-bold mb-xs">Image Angle Finder</h4>
+<p class="font-body-sm text-secondary font-bold">Open Tool →</p>
+</div>
+<div class="border border-outline-variant p-md">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="ios_share">ios_share</span>
+<h4 class="font-body-md font-bold mb-xs">Precise Export</h4>
+<p class="font-body-sm text-on-surface-variant">Copy results to clipboard with one-tap precision.</p>
+</div>
+</div>
+</section>
+<!-- Pricing -->
+<section class="bg-surface-container-low py-xl px-margin-mobile">
+<div class="bg-surface-container-lowest border-2 border-primary p-lg text-center shadow-md">
+<span class="bg-primary-container/10 text-primary font-label-caps px-sm py-xs mb-md inline-block">FREE FOREVER</span>
+<h3 class="font-headline-md text-headline-md mb-md">Always Free</h3>
+<ul class="text-left space-y-sm mb-xl font-body-sm">
+<li class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px] text-primary" data-icon="check">check</span> No Account Required</li>
+<li class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px] text-primary" data-icon="check">check</span> Full Precision Accuracy</li>
+<li class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px] text-primary" data-icon="check">check</span> Mobile &amp; Tablet Ready</li>
+</ul>
+<button class="w-full bg-secondary text-on-secondary py-md rounded font-bold hover:opacity-90 active:scale-95 transition-all">
+                    Get Started Now
+                </button>
+</div>
+</section>
+<!-- FAQ -->
+<section class="bg-surface-container-lowest py-xl px-margin-mobile">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xl text-center">FAQ</h2>
+<div class="space-y-sm">
+<details class="group border-b border-outline-variant pb-sm">
+<summary class="list-none flex justify-between items-center py-sm cursor-pointer font-body-md font-bold">
+                        Is my data private?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="font-body-sm text-on-surface-variant pt-xs pb-sm">Yes. AngleFinder runs entirely in your browser. We never store or transmit your measurements or images.</p>
+</details>
+<details class="group border-b border-outline-variant pb-sm">
+<summary class="list-none flex justify-between items-center py-sm cursor-pointer font-body-md font-bold">
+                        How accurate is it?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="font-body-sm text-on-surface-variant pt-xs pb-sm">The tool provides accuracy down to 0.1 decimal places, depending on your manual calibration and screen resolution.</p>
+</details>
+<details class="group border-b border-outline-variant pb-sm">
+<summary class="list-none flex justify-between items-center py-sm cursor-pointer font-body-md font-bold">
+                        Which devices are supported?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="font-body-sm text-on-surface-variant pt-xs pb-sm">All modern web browsers on iOS, Android, macOS, Windows, and Linux are supported.</p>
+</details>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="bg-primary py-xl px-margin-mobile text-center">
+<h2 class="font-headline-md text-headline-md text-on-primary mb-md">Ready for precision?</h2>
+<button class="bg-surface-container-lowest text-primary px-xl py-md rounded-full font-bold hover:bg-surface-container-high transition-colors">
+                Start Measuring
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background py-xl px-margin-mobile flex flex-col items-center gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-primary" data-icon="architecture">architecture</span>
+<span class="font-headline-md text-headline-md text-on-primary">AngleFinder</span>
+</div>
+<nav class="flex flex-wrap justify-center gap-md text-on-primary/80 font-body-sm">
+<a class="hover:text-secondary-fixed transition-colors" href="#">Product</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Methodology</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Privacy</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Terms</a>
+</nav>
+<p class="font-body-sm text-on-primary/60 text-center">
+            © 2024 AngleFinder. Precision Guaranteed.
+        </p>
+</footer>
+<!-- Cookie Banner -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-highest/95 backdrop-blur-sm border-t border-outline-variant p-md flex items-center justify-between z-50">
+<p class="font-body-sm text-on-surface-variant mr-md">We use cookies to improve your experience.</p>
+<button class="bg-primary text-on-primary px-md py-xs rounded font-label-caps shrink-0">Accept</button>
+</div>
+</body></html>

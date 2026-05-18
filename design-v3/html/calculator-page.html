@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Triangle Angle Calculator | AngleFinder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eeeeeb",
+                        "error": "#ba1a1a",
+                        "tertiary": "#401b1b",
+                        "inverse-primary": "#a5d0b9",
+                        "on-surface": "#1a1c1a",
+                        "primary": "#012d1d",
+                        "secondary-container": "#beead1",
+                        "secondary": "#3f6653",
+                        "on-secondary-fixed-variant": "#274e3d",
+                        "on-tertiary-fixed": "#331111",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e8e8e5",
+                        "surface-variant": "#e2e3e0",
+                        "primary-fixed": "#c1ecd4",
+                        "on-primary-container": "#86af99",
+                        "on-secondary-fixed": "#002114",
+                        "tertiary-fixed": "#ffdad8",
+                        "outline": "#717973",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "surface": "#f9faf6",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#436b58",
+                        "on-tertiary-fixed-variant": "#673a39",
+                        "secondary-fixed-dim": "#a5d0b9",
+                        "on-tertiary-container": "#d29895",
+                        "surface-dim": "#dadad7",
+                        "on-primary-fixed": "#002114",
+                        "surface-bright": "#f9faf6",
+                        "tertiary-fixed-dim": "#f5b7b4",
+                        "primary-container": "#1b4332",
+                        "surface-container-low": "#f3f4f1",
+                        "surface-tint": "#3f6653",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#5a302f",
+                        "on-background": "#1a1c1a",
+                        "inverse-surface": "#2f312f",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "secondary-fixed": "#c1ecd4",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9faf6",
+                        "surface-container-highest": "#e2e3e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max-width": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-xl": ["Space Grotesk"],
+                        "body-sm": ["DM Sans"],
+                        "data-display": ["JetBrains Mono"],
+                        "data-label": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-xl-mobile": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "data-display": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "data-label": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9faf6;
+            color: #1a1c1a;
+        }
+        .technical-card {
+            border: 1px solid #e2e3e0;
+            background-color: #ffffff;
+        }
+        .input-accent-border {
+            border-bottom: 2px solid #e2e3e0;
+            transition: border-color 0.2s ease;
+        }
+        .input-accent-border:focus {
+            outline: none;
+            border-bottom-color: #1b4332;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant h-20 flex items-center w-full px-margin-desktop sticky top-0 z-50">
+<div class="max-w-container-max-width mx-auto flex justify-between items-center w-full">
+<div class="font-headline-md text-headline-md font-bold text-primary">AngleFinder</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Protractor</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Calculator</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Image</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">FAQ</a>
+</nav>
+<button class="bg-primary-container text-on-primary py-2 px-6 rounded-full font-medium hover:opacity-80 transition-opacity">
+                Start Measuring
+            </button>
+</div>
+</header>
+<main class="py-16 px-4 md:px-margin-desktop max-w-container-max-width mx-auto">
+<!-- Hero Tool Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-8">
+<div class="technical-card p-8 rounded-lg">
+<div class="mb-8">
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-2">Triangle Angle Calculator</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Solve any triangle. Enter what you know, we calculate the rest.</p>
+</div>
+<!-- Input Mode Tabs -->
+<div class="flex flex-wrap gap-2 mb-10 bg-surface-container p-1 rounded-full w-fit">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-medium text-sm transition-all">SSS</button>
+<button class="text-on-surface-variant hover:bg-surface-variant px-6 py-2 rounded-full font-medium text-sm transition-all">SAS</button>
+<button class="text-on-surface-variant hover:bg-surface-variant px-6 py-2 rounded-full font-medium text-sm transition-all">ASA</button>
+<button class="text-on-surface-variant hover:bg-surface-variant px-6 py-2 rounded-full font-medium text-sm transition-all">AAS</button>
+<button class="text-on-surface-variant hover:bg-surface-variant px-6 py-2 rounded-full font-medium text-sm transition-all">HL</button>
+</div>
+<!-- Form -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+<div class="space-y-4">
+<label class="font-data-label text-data-label text-primary block uppercase">Side A (a)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low input-accent-border px-4 py-4 font-data-display text-data-display" placeholder="0.00" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-data-label">UNIT</span>
+</div>
+</div>
+<div class="space-y-4">
+<label class="font-data-label text-data-label text-primary block uppercase">Side B (b)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low input-accent-border px-4 py-4 font-data-display text-data-display" placeholder="0.00" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-data-label">UNIT</span>
+</div>
+</div>
+<div class="space-y-4">
+<label class="font-data-label text-data-label text-primary block uppercase">Side C (c)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low input-accent-border px-4 py-4 font-data-display text-data-display" placeholder="0.00" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-data-label">UNIT</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+<div class="flex items-center gap-4">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Units:</span>
+<div class="flex border border-outline-variant rounded-lg overflow-hidden">
+<button class="bg-primary-fixed text-on-primary-fixed px-3 py-1 font-data-label text-[10px]">DEG</button>
+<button class="px-3 py-1 font-data-label text-[10px] hover:bg-surface-variant transition-colors">RAD</button>
+<button class="px-3 py-1 font-data-label text-[10px] hover:bg-surface-variant transition-colors">GRAD</button>
+</div>
+</div>
+<button class="w-full md:w-auto bg-[#1b4332] text-white px-12 py-4 rounded-full font-headline-md text-headline-md shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                            Calculate
+                        </button>
+</div>
+<!-- Results Area -->
+<div class="bg-surface-container-low rounded-lg p-6 border-l-4 border-primary">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">Results</h3>
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6 font-data-display text-data-display">
+<div>
+<div class="text-xs font-data-label text-on-surface-variant mb-1 uppercase">Angle α</div>
+<div class="text-primary">38.66°</div>
+</div>
+<div>
+<div class="text-xs font-data-label text-on-surface-variant mb-1 uppercase">Angle β</div>
+<div class="text-primary">51.34°</div>
+</div>
+<div>
+<div class="text-xs font-data-label text-on-surface-variant mb-1 uppercase">Angle γ</div>
+<div class="text-primary">90.00°</div>
+</div>
+<div>
+<div class="text-xs font-data-label text-on-surface-variant mb-1 uppercase">Area</div>
+<div class="text-primary">24.00 u²</div>
+</div>
+<div>
+<div class="text-xs font-data-label text-on-surface-variant mb-1 uppercase">Perimeter</div>
+<div class="text-primary">24.00 u</div>
+</div>
+</div>
+</div>
+<!-- Educational Breakdown -->
+<div class="mt-8 pt-8 border-t border-outline-variant">
+<h4 class="font-headline-md text-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                            Calculation Logic
+                        </h4>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<p class="flex gap-4">
+<span class="font-data-label text-primary pt-1">01</span>
+<span>Using <strong>Law of Cosines</strong> for Angle α: α = arccos((b² + c² - a²) / 2bc). Applying values: arccos((8² + 10² - 6²) / (2 * 8 * 10)).</span>
+</p>
+<p class="flex gap-4">
+<span class="font-data-label text-primary pt-1">02</span>
+<span>Using <strong>Law of Sines</strong> for Angle β: sin(β) / b = sin(α) / a. Solving for β yields 51.34°.</span>
+</p>
+<p class="flex gap-4">
+<span class="font-data-label text-primary pt-1">03</span>
+<span>Sum of angles validation: γ = 180° - (α + β). Internal consistency check passed.</span>
+</p>
+</div>
+</div>
+<p class="mt-8 text-xs italic text-outline text-center">Results are for educational use.</p>
+</div>
+</div>
+<!-- Sidebar / Technical Diagram -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="technical-card p-6 rounded-lg overflow-hidden">
+<div class="aspect-square bg-surface-container rounded flex items-center justify-center relative mb-6">
+<img alt="Technical diagram of a triangle with annotated angles" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A clean, minimalist technical diagram of a Euclidean triangle set against a blueprint-style light gray background. The diagram features sharp, 2px black lines with thin red arc markers for each interior angle labeled with Greek letters. Sophisticated architectural drafting elements like faint grid lines and dimension leaders are visible, creating a high-precision engineering aesthetic. The overall atmosphere is clinical, professional, and mathematically perfect." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLK6lRtgkOGL86lg0OErkmr4aPIT9XzDmnLhkmBgXK06j6aI6b-w8ibSoWSkL4RsOlbO2rcQ3Krqi2AQ4_Ziyf9Q81BMnpQfYiWFLWJECF4f0T3RT7Ha4-9dJ8pp3bMtNAVOSYaqA_VMIKDt_ruH2qXJG18k3X_P98kKNAdi98UOTdTWJ7rEnWpFgbOJXFSyYg6_3n01JOb3KNH-88W0EKcAuu4i3y2cRyQi5FT3oq-UrnXisRujX4vnrCPJYiaUmnbFK3LQ8wFqo"/>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Geometric Reference</h3>
+<p class="text-body-sm text-on-surface-variant">Visualizing input parameters helps verify the physical possibility of the triangle before computation.</p>
+</div>
+<div class="technical-card p-6 rounded-lg bg-primary-container text-on-primary">
+<h3 class="font-headline-md text-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="error">error</span>
+                        Precision Tip
+                    </h3>
+<p class="text-body-sm opacity-90 leading-relaxed">Ensure all side lengths satisfy the Triangle Inequality Theorem: the sum of any two sides must be strictly greater than the third side.</p>
+</div>
+</div>
+</section>
+<!-- How To Use Section -->
+<section class="mt-24">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-4 text-primary">Methods of Calculation</h2>
+<div class="h-1 w-24 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- SSS -->
+<div class="technical-card p-8 rounded-lg group hover:border-primary transition-colors">
+<div class="font-data-label text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="p-2 bg-surface-container rounded">SSS</span>
+                        Side-Side-Side
+                    </div>
+<h4 class="font-headline-md text-headline-md mb-3">All Sides Known</h4>
+<p class="text-on-surface-variant text-body-md mb-6">Input all three lengths. The calculator uses the Law of Cosines to solve for all internal angles.</p>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="straighten">straighten</span>
+</div>
+<!-- SAS -->
+<div class="technical-card p-8 rounded-lg group hover:border-primary transition-colors">
+<div class="font-data-label text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="p-2 bg-surface-container rounded">SAS</span>
+                        Side-Angle-Side
+                    </div>
+<h4 class="font-headline-md text-headline-md mb-3">Enclosed Angle</h4>
+<p class="text-on-surface-variant text-body-md mb-6">Input two side lengths and the angle between them. Finds the remaining side and two angles.</p>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="change_history">change_history</span>
+</div>
+<!-- ASA -->
+<div class="technical-card p-8 rounded-lg group hover:border-primary transition-colors">
+<div class="font-data-label text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="p-2 bg-surface-container rounded">ASA</span>
+                        Angle-Side-Angle
+                    </div>
+<h4 class="font-headline-md text-headline-md mb-3">Enclosed Side</h4>
+<p class="text-on-surface-variant text-body-md mb-6">Input two angles and the side connecting them. Uses the Sine Rule to calculate missing components.</p>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="square_foot">square_foot</span>
+</div>
+</div>
+</section>
+<!-- Related Tools Section -->
+<section class="mt-24 bg-surface-container rounded-2xl p-12">
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-12">Expand Your Workflow</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<a class="technical-card p-8 rounded-xl flex items-center justify-between group hover:shadow-xl transition-all" href="#">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Digital Protractor</h4>
+<p class="text-on-surface-variant text-body-md">Measure angles directly on your screen with precision overlays.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-outline group-hover:text-primary group-hover:translate-x-2 transition-all" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="technical-card p-8 rounded-xl flex items-center justify-between group hover:shadow-xl transition-all" href="#">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Image Angle Finder</h4>
+<p class="text-on-surface-variant text-body-md">Upload photos or schematics to detect and calculate real-world angles.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-outline group-hover:text-primary group-hover:translate-x-2 transition-all" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant mt-24">
+<div class="max-w-container-max-width mx-auto py-16 px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-md text-headline-md font-bold text-primary">AngleFinder</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Precision in every degree © 2024 AngleFinder</p>
+</div>
+<nav class="flex gap-8">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline decoration-1 transition-all duration-200" href="#">Product</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline decoration-1 transition-all duration-200" href="#">Methodology</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline decoration-1 transition-all duration-200" href="#">Privacy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline decoration-1 transition-all duration-200" href="#">Terms</a>
+</nav>
+</div>
+</footer>
+</body></html>
