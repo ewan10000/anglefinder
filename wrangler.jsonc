@@ -23,5 +23,9 @@
 		// Enable image optimization
 		// see https://opennext.js.org/cloudflare/howtos/image
 		"binding": "IMAGES"
-	}
+	},
+	"routes": [
+		{ "pattern": "anglefinder.co/*", "zone_name": "anglefinder.co" },
+		{ "pattern": "www.anglefinder.co/*", "zone_name": "anglefinder.co" }
+	]
 }
