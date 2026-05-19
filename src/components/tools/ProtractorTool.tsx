@@ -131,6 +131,9 @@ export default function ProtractorTool() {
             </label>
             <input
               type="number"
+              min={unit === "deg" ? 0 : unit === "rad" ? 0 : 0}
+              max={unit === "deg" ? 360 : unit === "rad" ? 6.2832 : 400}
+              step={unit === "deg" ? 0.1 : unit === "rad" ? 0.0001 : 0.1}
               value={displayValue()}
               onChange={(e) => {
                 const val = parseFloat(e.target.value);

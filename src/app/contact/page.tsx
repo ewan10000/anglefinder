@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Contact | AngleFinder",
   description: "Contact AngleFinder for questions, feedback, or support.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
@@ -13,10 +14,10 @@ export default function ContactPage() {
       <div className="bg-af-surface border border-af-outline-variant rounded-xl p-8">
         <p className="text-sm text-af-on-surface-variant mb-2">Email us at:</p>
         <a
-          href="mailto:hello@anglefinder.com"
+          href="mailto:hello@anglefinder.co"
           className="font-[family-name:var(--font-display)] text-xl font-bold text-af-primary hover:underline"
         >
-          hello@anglefinder.com
+          hello@anglefinder.co
         </a>
         <p className="text-xs text-af-outline mt-6">
           We typically respond within 1-2 business days.

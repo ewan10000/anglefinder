@@ -39,17 +39,29 @@ export const metadata: Metadata = {
     "photo angle tool",
   ],
   metadataBase: new URL("https://anglefinder.co"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "AngleFinder — Precision 360° Online Protractor",
     description: "Free online protractor, triangle calculator & image measurer. No signup.",
     url: "https://anglefinder.co",
     siteName: "AngleFinder",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AngleFinder — Online Protractor & Angle Calculator",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AngleFinder — Precision 360° Online Protractor",
     description: "Free online protractor, triangle calculator & image measurer. No signup.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

@@ -221,6 +221,9 @@ export default function CalculatorTool() {
                   <div className="relative">
                     <input
                       type="number"
+                      min={field.type === "angle" ? 0 : 0}
+                      max={field.type === "angle" ? 360 : 1000000}
+                      step={0.01}
                       value={inputs[field.key] || ""}
                       onChange={(e) => updateInput(field.key, e.target.value)}
                       placeholder="0.00"

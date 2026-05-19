@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Terms of Service | AngleFinder",
   description: "AngleFinder terms of service. Read our usage terms and disclaimers.",
+  alternates: { canonical: "/terms-of-service" },
 };
 
 export default function TermsPage() {
@@ -47,7 +48,7 @@ export default function TermsPage() {
 
         <section>
           <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">8. Contact</h2>
-          <p>For questions about these Terms, contact us at <a href="mailto:hello@anglefinder.com" className="text-af-primary underline">hello@anglefinder.com</a>.</p>
+          <p>For questions about these Terms, contact us at <a href="mailto:hello@anglefinder.co" className="text-af-primary underline">hello@anglefinder.co</a>.</p>
         </section>
       </div>
     </div>

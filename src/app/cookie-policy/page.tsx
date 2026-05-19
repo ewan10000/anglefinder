@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Cookie Policy | AngleFinder",
   description: "Learn how AngleFinder uses cookies and how to manage your preferences.",
+  alternates: { canonical: "/cookie-policy" },
 };
 
 export default function CookiePolicyPage() {
@@ -37,7 +38,7 @@ export default function CookiePolicyPage() {
 
         <section>
           <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">6. Contact</h2>
-          <p>For questions about our Cookie Policy, contact <a href="mailto:hello@anglefinder.com" className="text-af-primary underline">hello@anglefinder.com</a>.</p>
+          <p>For questions about our Cookie Policy, contact <a href="mailto:hello@anglefinder.co" className="text-af-primary underline">hello@anglefinder.co</a>.</p>
         </section>
       </div>
     </div>
