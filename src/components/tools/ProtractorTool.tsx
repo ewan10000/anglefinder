@@ -81,11 +81,17 @@ export default function ProtractorTool() {
               }}
             />
             {/* Center pivot */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-af-primary rounded-full z-20" />
+            <div
+              ref={dialRef}
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-af-primary rounded-full z-20"
+            />
             {/* Pointer arm */}
             <div
               className="absolute bottom-0 left-1/2 h-[90%] w-[2px] bg-af-tertiary origin-bottom z-10"
               style={{ transform: `translateX(-50%) rotate(${angle - 90}deg)` }}
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 bg-af-tertiary rounded-full cursor-move shadow" />
             </div>
