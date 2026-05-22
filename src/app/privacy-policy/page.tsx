@@ -1,3 +1,6 @@
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generateWebPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
+
 export const metadata = {
   title: "Privacy Policy | AngleFinder",
   description: "AngleFinder privacy policy. Learn how we handle your data.",
@@ -5,12 +8,30 @@ export const metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-  return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">Privacy Policy</h1>
-      <p className="text-sm text-af-on-surface-variant mb-8">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+  const pageUrl = "https://anglefinder.co/privacy-policy";
+  const pageTitle = "Privacy Policy | AngleFinder";
+  const pageDesc = "AngleFinder privacy policy. Learn how we handle your data.";
 
-      <div className="space-y-8 text-sm text-af-on-surface-variant leading-relaxed">
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageSchema({
+          title: pageTitle,
+          description: pageDesc,
+          url: pageUrl,
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbSchema([
+          { name: "Home", url: "https://anglefinder.co" },
+          { name: "Privacy Policy", url: pageUrl },
+        ])}
+      />
+      <div className="max-w-3xl mx-auto px-6 py-12">
+        <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">Privacy Policy</h1>
+        <p className="text-sm text-af-on-surface-variant mb-8">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+
+        <div className="space-y-8 text-sm text-af-on-surface-variant leading-relaxed">
         <section>
           <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">1. Information We Do Not Collect</h2>
           <p>AngleFinder is a purely front-end tool. We do not collect, store, or transmit any personal information. All calculations, image processing, and angle measurements happen entirely within your browser.</p>
@@ -47,5 +68,6 @@ export default function PrivacyPolicyPage() {
         </section>
       </div>
     </div>
+    </>
   );
 }

@@ -1,3 +1,6 @@
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generateWebPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
+
 export const metadata = {
   title: "FAQ | AngleFinder",
   description: "Frequently asked questions about AngleFinder's online protractor, angle calculator, and image measurement tools.",
@@ -5,6 +8,10 @@ export const metadata = {
 };
 
 export default function FAQPage() {
+  const pageUrl = "https://anglefinder.co/faq";
+  const pageTitle = "FAQ | AngleFinder";
+  const pageDesc = "Frequently asked questions about AngleFinder's online protractor, angle calculator, and image measurement tools.";
+
   const faqs = [
     {
       q: "Is AngleFinder free to use?",
@@ -33,34 +40,49 @@ export default function FAQPage() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">
-        Frequently Asked Questions
-      </h1>
-      <p className="text-af-on-surface-variant mb-8">
-        Everything you need to know about AngleFinder.
-      </p>
+    <>
+      <JsonLd
+        data={generateWebPageSchema({
+          title: pageTitle,
+          description: pageDesc,
+          url: pageUrl,
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbSchema([
+          { name: "Home", url: "https://anglefinder.co" },
+          { name: "FAQ", url: pageUrl },
+        ])}
+      />
+      <div className="max-w-3xl mx-auto px-6 py-12">
+        <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">
+          Frequently Asked Questions
+        </h1>
+        <p className="text-af-on-surface-variant mb-8">
+          Everything you need to know about AngleFinder.
+        </p>
 
-      <div className="space-y-6">
-        {faqs.map((faq, i) => (
-          <div key={i} className="bg-af-surface border border-af-outline-variant rounded-xl p-6">
-            <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">
-              {faq.q}
-            </h2>
-            <p className="text-sm text-af-on-surface-variant leading-relaxed">{faq.a}</p>
-          </div>
-        ))}
-      </div>
+        <div className="space-y-6">
+          {faqs.map((faq, i) => (
+            <div key={i} className="bg-af-surface border border-af-outline-variant rounded-xl p-6">
+              <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">
+                {faq.q}
+              </h2>
+              <p className="text-sm text-af-on-surface-variant leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
 
-      <div className="mt-12 text-center">
-        <p className="text-af-on-surface-variant mb-4">Still have questions?</p>
-        <a
-          href="mailto:support@anglefinder.co"
-          className="inline-block bg-af-primary-container text-af-on-primary px-6 py-3 rounded-full text-sm font-bold hover:opacity-90 transition-opacity"
-        >
-          Contact Us
-        </a>
+        <div className="mt-12 text-center">
+          <p className="text-af-on-surface-variant mb-4">Still have questions?</p>
+          <a
+            href="mailto:support@anglefinder.co"
+            className="inline-block bg-af-primary-container text-af-on-primary px-6 py-3 rounded-full text-sm font-bold hover:opacity-90 transition-opacity"
+          >
+            Contact Us
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

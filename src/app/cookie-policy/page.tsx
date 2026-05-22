@@ -1,3 +1,6 @@
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generateWebPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
+
 export const metadata = {
   title: "Cookie Policy | AngleFinder",
   description: "Learn how AngleFinder uses cookies and how to manage your preferences.",
@@ -5,12 +8,30 @@ export const metadata = {
 };
 
 export default function CookiePolicyPage() {
-  return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">Cookie Policy</h1>
-      <p className="text-sm text-af-on-surface-variant mb-8">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+  const pageUrl = "https://anglefinder.co/cookie-policy";
+  const pageTitle = "Cookie Policy | AngleFinder";
+  const pageDesc = "Learn how AngleFinder uses cookies and how to manage your preferences.";
 
-      <div className="space-y-8 text-sm text-af-on-surface-variant leading-relaxed">
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageSchema({
+          title: pageTitle,
+          description: pageDesc,
+          url: pageUrl,
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbSchema([
+          { name: "Home", url: "https://anglefinder.co" },
+          { name: "Cookie Policy", url: pageUrl },
+        ])}
+      />
+      <div className="max-w-3xl mx-auto px-6 py-12">
+        <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">Cookie Policy</h1>
+        <p className="text-sm text-af-on-surface-variant mb-8">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+
+        <div className="space-y-8 text-sm text-af-on-surface-variant leading-relaxed">
         <section>
           <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">1. What Are Cookies?</h2>
           <p>Cookies are small text files stored on your device by your web browser. They help websites remember your preferences and improve your browsing experience.</p>
@@ -42,5 +63,6 @@ export default function CookiePolicyPage() {
         </section>
       </div>
     </div>
+    </>
   );
 }

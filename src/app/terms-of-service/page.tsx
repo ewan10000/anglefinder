@@ -1,3 +1,6 @@
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generateWebPageSchema, generateBreadcrumbSchema } from "@/lib/schema";
+
 export const metadata = {
   title: "Terms of Service | AngleFinder",
   description: "AngleFinder terms of service. Read our usage terms and disclaimers.",
@@ -5,12 +8,30 @@ export const metadata = {
 };
 
 export default function TermsPage() {
-  return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">Terms of Service</h1>
-      <p className="text-sm text-af-on-surface-variant mb-8">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+  const pageUrl = "https://anglefinder.co/terms-of-service";
+  const pageTitle = "Terms of Service | AngleFinder";
+  const pageDesc = "AngleFinder terms of service. Read our usage terms and disclaimers.";
 
-      <div className="space-y-8 text-sm text-af-on-surface-variant leading-relaxed">
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageSchema({
+          title: pageTitle,
+          description: pageDesc,
+          url: pageUrl,
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbSchema([
+          { name: "Home", url: "https://anglefinder.co" },
+          { name: "Terms of Service", url: pageUrl },
+        ])}
+      />
+      <div className="max-w-3xl mx-auto px-6 py-12">
+        <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">Terms of Service</h1>
+        <p className="text-sm text-af-on-surface-variant mb-8">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+
+        <div className="space-y-8 text-sm text-af-on-surface-variant leading-relaxed">
         <section>
           <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">1. Acceptance of Terms</h2>
           <p>By using AngleFinder, you agree to these Terms of Service. If you do not agree, please do not use our tools.</p>
@@ -52,5 +73,6 @@ export default function TermsPage() {
         </section>
       </div>
     </div>
+    </>
   );
 }

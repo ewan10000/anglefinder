@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/sections/CookieBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -78,6 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
+        <JsonLd data={generateOrganizationSchema()} />
+        <JsonLd data={generateWebSiteSchema()} />
       </body>
     </html>
   );

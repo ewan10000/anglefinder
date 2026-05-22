@@ -1,4 +1,6 @@
 import ProtractorTool from "@/components/tools/ProtractorTool";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generateWebPageSchema, generateBreadcrumbSchema, generateSoftwareApplicationSchema } from "@/lib/schema";
 
 export const metadata = {
   title: "Online Protractor | AngleFinder",
@@ -7,5 +9,34 @@ export const metadata = {
 };
 
 export default function ProtractorPage() {
-  return <ProtractorTool />;
+  const pageUrl = "https://anglefinder.co/protractor";
+  const pageTitle = "Online Protractor | AngleFinder";
+  const pageDesc = "Free 360° online protractor. Measure any angle from 0° to 360°. Drag to rotate, copy results instantly.";
+
+  return (
+    <>
+      <JsonLd
+        data={generateWebPageSchema({
+          title: pageTitle,
+          description: pageDesc,
+          url: pageUrl,
+        })}
+      />
+      <JsonLd
+        data={generateBreadcrumbSchema([
+          { name: "Home", url: "https://anglefinder.co" },
+          { name: "Online Protractor", url: pageUrl },
+        ])}
+      />
+      <JsonLd
+        data={generateSoftwareApplicationSchema({
+          name: "Online Protractor",
+          description: pageDesc,
+          url: pageUrl,
+          applicationCategory: "EducationApplication",
+        })}
+      />
+      <ProtractorTool />
+    </>
+  );
 }
