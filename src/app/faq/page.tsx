@@ -14,73 +14,49 @@ export default function FAQPage() {
 
   const faqs = [
     {
-      q: "Is AngleFinder free to use?",
-      a: "Yes, all core tools are completely free. No signup or credit card required.",
+      question: "Is AngleFinder free?",
+      answer: "Yes. All tools are free to use with no signup required.",
     },
     {
-      q: "How accurate is the online protractor?",
-      a: "AngleFinder provides measurements accurate to 0.1° for educational and general use. For professional applications requiring certified precision, please use a physical protractor or calibrated measuring instrument.",
+      question: "How accurate is the online protractor?",
+      answer: "The protractor is accurate to 0.1 degrees for on-screen measurements.",
     },
     {
-      q: "Do my images get uploaded to your servers?",
-      a: "No. All image processing happens entirely within your browser. Your images are never uploaded, stored, or transmitted to any server.",
+      question: "Can I use AngleFinder on mobile?",
+      answer: "Yes. All tools are responsive and work on phones, tablets, and desktops.",
     },
     {
-      q: "Can I use AngleFinder on mobile?",
-      a: "Yes, AngleFinder is fully responsive and works on all modern browsers including mobile devices and tablets.",
-    },
-    {
-      q: "What browsers are supported?",
-      a: "AngleFinder works on Chrome, Firefox, Safari, Edge, and other modern browsers that support HTML5 Canvas and JavaScript.",
-    },
-    {
-      q: "Is there a pro version?",
-      a: "Currently all features are free. We may introduce premium features in the future, but the core protractor, calculator, and image tools will always remain free.",
+      question: "Do you store my uploaded images?",
+      answer: "No. Images are processed locally in your browser and never uploaded to our servers.",
     },
   ];
 
   return (
     <>
       <JsonLd
-        data={generateWebPageSchema({
-          title: pageTitle,
-          description: pageDesc,
-          url: pageUrl,
-        })}
-      />
-      <JsonLd
-        data={generateBreadcrumbSchema([
-          { name: "Home", url: "https://anglefinder.co" },
-          { name: "FAQ", url: pageUrl },
-        ])}
+        data={[
+          generateWebPageSchema({
+            title: pageTitle,
+            description: pageDesc,
+            url: pageUrl,
+          }),
+          generateBreadcrumbSchema([
+            { name: "Home", url: "https://anglefinder.co" },
+            { name: "FAQ", url: pageUrl },
+          ]),
+        ]}
       />
       <div className="max-w-3xl mx-auto px-6 py-12">
-        <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">
+        <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-8">
           Frequently Asked Questions
         </h1>
-        <p className="text-af-on-surface-variant mb-8">
-          Everything you need to know about AngleFinder.
-        </p>
-
         <div className="space-y-6">
-          {faqs.map((faq, i) => (
-            <div key={i} className="bg-af-surface border border-af-outline-variant rounded-xl p-6">
-              <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">
-                {faq.q}
-              </h2>
-              <p className="text-sm text-af-on-surface-variant leading-relaxed">{faq.a}</p>
+          {faqs.map((faq, index) => (
+            <div key={index} className="border-b border-af-line pb-6">
+              <h2 className="font-semibold text-lg text-af-on-surface mb-2">{faq.question}</h2>
+              <p className="text-af-on-surface/70">{faq.answer}</p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-af-on-surface-variant mb-4">Still have questions?</p>
-          <a
-            href="mailto:support@anglefinder.co"
-            className="inline-block bg-af-primary-container text-af-on-primary px-6 py-3 rounded-full text-sm font-bold hover:opacity-90 transition-opacity"
-          >
-            Contact Us
-          </a>
         </div>
       </div>
     </>

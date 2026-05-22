@@ -16,25 +16,23 @@ export default function ProtractorPage() {
   return (
     <>
       <JsonLd
-        data={generateWebPageSchema({
-          title: pageTitle,
-          description: pageDesc,
-          url: pageUrl,
-        })}
-      />
-      <JsonLd
-        data={generateBreadcrumbSchema([
-          { name: "Home", url: "https://anglefinder.co" },
-          { name: "Online Protractor", url: pageUrl },
-        ])}
-      />
-      <JsonLd
-        data={generateSoftwareApplicationSchema({
-          name: "Online Protractor",
-          description: pageDesc,
-          url: pageUrl,
-          applicationCategory: "EducationApplication",
-        })}
+        data={[
+          generateWebPageSchema({
+            title: pageTitle,
+            description: pageDesc,
+            url: pageUrl,
+          }),
+          generateBreadcrumbSchema([
+            { name: "Home", url: "https://anglefinder.co" },
+            { name: "Online Protractor", url: pageUrl },
+          ]),
+          generateSoftwareApplicationSchema({
+            name: "Online Protractor",
+            description: pageDesc,
+            url: pageUrl,
+            applicationCategory: "EducationApplication",
+          }),
+        ]}
       />
       <ProtractorTool />
     </>

@@ -15,59 +15,61 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <JsonLd
-        data={generateWebPageSchema({
-          title: pageTitle,
-          description: pageDesc,
-          url: pageUrl,
-        })}
-      />
-      <JsonLd
-        data={generateBreadcrumbSchema([
-          { name: "Home", url: "https://anglefinder.co" },
-          { name: "Privacy Policy", url: pageUrl },
-        ])}
+        data={[
+          generateWebPageSchema({
+            title: pageTitle,
+            description: pageDesc,
+            url: pageUrl,
+          }),
+          generateBreadcrumbSchema([
+            { name: "Home", url: "https://anglefinder.co" },
+            { name: "Privacy Policy", url: pageUrl },
+          ]),
+        ]}
       />
       <div className="max-w-3xl mx-auto px-6 py-12">
         <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold text-af-on-surface mb-2">Privacy Policy</h1>
-        <p className="text-sm text-af-on-surface-variant mb-8">Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+        <p className="text-af-on-surface/70 mb-8">Last updated: May 15, 2025</p>
 
-        <div className="space-y-8 text-sm text-af-on-surface-variant leading-relaxed">
-        <section>
-          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">1. Information We Do Not Collect</h2>
-          <p>AngleFinder is a purely front-end tool. We do not collect, store, or transmit any personal information. All calculations, image processing, and angle measurements happen entirely within your browser.</p>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-3">1. No Data Collection</h2>
+          <p className="text-af-on-surface/70 leading-relaxed">
+            AngleFinder does not collect, store, or transmit any personal information. All calculations happen in your browser.
+          </p>
         </section>
 
-        <section>
-          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">2. Local Storage</h2>
-          <p>We use your browser's localStorage only to remember your cookie consent preference. This data never leaves your device and is not shared with any third party.</p>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-3">2. No User Accounts</h2>
+          <p className="text-af-on-surface/70 leading-relaxed">
+            We do not require user accounts, email addresses, passwords, or any form of registration.
+          </p>
         </section>
 
-        <section>
-          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">3. Image Processing</h2>
-          <p>When you use the Image Angle Measurement tool, your images are processed entirely within your browser using the FileReader and Canvas APIs. We never see, upload, or store your images on our servers.</p>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-3">3. Cookies</h2>
+          <p className="text-af-on-surface/70 leading-relaxed">
+            We use essential cookies for site functionality (e.g., theme preference). No tracking cookies.
+          </p>
         </section>
 
-        <section>
-          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">4. Analytics</h2>
-          <p>We use Plausible Analytics, a privacy-friendly analytics tool that does not use cookies and does not collect personally identifiable information. It tracks anonymous page views and referral sources only.</p>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-3">4. Third-Party Services</h2>
+          <p className="text-af-on-surface/70 leading-relaxed">
+            We may display ads through third-party networks. These networks may use cookies per their own privacy policies.
+          </p>
         </section>
 
-        <section>
-          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">5. Advertising</h2>
-          <p>We display Google AdSense advertisements. AdSense may use cookies to serve personalized ads, but only after you explicitly consent to advertising cookies via our Cookie Consent Banner.</p>
-        </section>
-
-        <section>
-          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">6. Children's Privacy</h2>
-          <p>AngleFinder is not intended for users under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately.</p>
-        </section>
-
-        <section>
-          <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">7. Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@anglefinder.co" className="text-af-primary underline">support@anglefinder.co</a>.</p>
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-3">5. Contact</h2>
+          <p className="text-af-on-surface/70 leading-relaxed">
+            For privacy questions, contact us at{" "}
+            <a href="mailto:support@anglefinder.co" className="text-af-cta hover:underline">
+              support@anglefinder.co
+            </a>
+            .
+          </p>
         </section>
       </div>
-    </div>
     </>
   );
 }

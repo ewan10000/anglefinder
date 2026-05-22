@@ -16,25 +16,23 @@ export default function CalculatorPage() {
   return (
     <>
       <JsonLd
-        data={generateWebPageSchema({
-          title: pageTitle,
-          description: pageDesc,
-          url: pageUrl,
-        })}
-      />
-      <JsonLd
-        data={generateBreadcrumbSchema([
-          { name: "Home", url: "https://anglefinder.co" },
-          { name: "Triangle Angle Calculator", url: pageUrl },
-        ])}
-      />
-      <JsonLd
-        data={generateSoftwareApplicationSchema({
-          name: "Triangle Angle Calculator",
-          description: pageDesc,
-          url: pageUrl,
-          applicationCategory: "EducationApplication",
-        })}
+        data={[
+          generateWebPageSchema({
+            title: pageTitle,
+            description: pageDesc,
+            url: pageUrl,
+          }),
+          generateBreadcrumbSchema([
+            { name: "Home", url: "https://anglefinder.co" },
+            { name: "Triangle Angle Calculator", url: pageUrl },
+          ]),
+          generateSoftwareApplicationSchema({
+            name: "Triangle Angle Calculator",
+            description: pageDesc,
+            url: pageUrl,
+            applicationCategory: "EducationApplication",
+          }),
+        ]}
       />
       <CalculatorTool />
     </>

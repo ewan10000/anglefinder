@@ -80,8 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
-        <JsonLd data={generateOrganizationSchema()} />
-        <JsonLd data={generateWebSiteSchema()} />
+        <JsonLd data={[generateOrganizationSchema(), generateWebSiteSchema()]} />
       </body>
     </html>
   );
