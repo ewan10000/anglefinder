@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
 
         <section>
           <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">7. Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@anglefinder.co" className="text-af-primary underline">hello@anglefinder.co</a>.</p>
+          <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@anglefinder.co" className="text-af-primary underline">support@anglefinder.co</a>.</p>
         </section>
       </div>
     </div>

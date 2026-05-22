@@ -48,7 +48,7 @@ export default function TermsPage() {
 
         <section>
           <h2 className="font-[family-name:var(--font-display)] text-lg font-bold text-af-primary mb-2">8. Contact</h2>
-          <p>For questions about these Terms, contact us at <a href="mailto:hello@anglefinder.co" className="text-af-primary underline">hello@anglefinder.co</a>.</p>
+          <p>For questions about these Terms, contact us at <a href="mailto:support@anglefinder.co" className="text-af-primary underline">support@anglefinder.co</a>.</p>
         </section>
       </div>
     </div>

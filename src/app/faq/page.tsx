@@ -55,7 +55,7 @@ export default function FAQPage() {
       <div className="mt-12 text-center">
         <p className="text-af-on-surface-variant mb-4">Still have questions?</p>
         <a
-          href="mailto:hello@anglefinder.co"
+          href="mailto:support@anglefinder.co"
           className="inline-block bg-af-primary-container text-af-on-primary px-6 py-3 rounded-full text-sm font-bold hover:opacity-90 transition-opacity"
         >
           Contact Us
