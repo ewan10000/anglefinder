@@ -1,10 +1,11 @@
 const BASE_URL = "https://anglefinder.co";
+const ORGANIZATION_ID = `${BASE_URL}/#organization`;
+const WEBSITE_ID = `${BASE_URL}/#website`;
 
 export function generateOrganizationSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": `${BASE_URL}/#organization`,
+    "@id": ORGANIZATION_ID,
     name: "AngleFinder",
     url: BASE_URL,
     logo: {
@@ -18,11 +19,13 @@ export function generateOrganizationSchema() {
 
 export function generateWebSiteSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${BASE_URL}/#website`,
+    "@id": WEBSITE_ID,
     name: "AngleFinder",
     url: BASE_URL,
+    publisher: {
+      "@id": ORGANIZATION_ID,
+    },
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -43,15 +46,13 @@ interface WebPageParams {
 
 export function generateWebPageSchema({ title, description, url, dateModified }: WebPageParams) {
   const schema: Record<string, unknown> = {
-    "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${url}#webpage`,
     name: title,
     description,
     url,
     isPartOf: {
-      "@type": "WebSite",
-      "@id": `${BASE_URL}/#website`,
+      "@id": WEBSITE_ID,
     },
     inLanguage: "en",
   };
@@ -70,7 +71,6 @@ interface BreadcrumbItem {
 
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
@@ -90,7 +90,6 @@ interface SoftwareAppParams {
 
 export function generateSoftwareApplicationSchema({ name, description, url, applicationCategory }: SoftwareAppParams) {
   return {
-    "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "@id": `${url}#software`,
     name,
@@ -109,8 +108,7 @@ export function generateSoftwareApplicationSchema({ name, description, url, appl
       ratingCount: "1250",
     },
     author: {
-      "@type": "Organization",
-      "@id": `${BASE_URL}/#organization`,
+      "@id": ORGANIZATION_ID,
     },
   };
 }
