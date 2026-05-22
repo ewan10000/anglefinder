@@ -27,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AngleFinder — Precision 360° Online Protractor & Angle Calculator",
+  title: "AngleFinder — Online Protractor & Angle Calculator",
   description:
     "Free online angle finder with protractor, triangle calculator, and image measurement. No signup required. For educational and general use.",
   keywords: [
