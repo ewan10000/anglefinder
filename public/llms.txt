@@ -1,0 +1,26 @@
+# AngleFinder
+
+AngleFinder is a free online precision tool for measuring angles. It includes a 360° protractor, triangle calculator, and image angle measurement. No signup required.
+
+## Core Pages
+
+- Home: https://anglefinder.co/ — Free online angle finder with protractor, triangle calculator, and image measurement
+- Protractor: https://anglefinder.co/protractor — 360° online protractor, drag to rotate, copy results
+- Triangle Calculator: https://anglefinder.co/calculator — Solve triangles with SSS, SAS, ASA, AAS, HL
+- Image Measure: https://anglefinder.co/image — Upload photos and measure angles by clicking points
+- Privacy Policy: https://anglefinder.co/privacy-policy
+- Terms of Service: https://anglefinder.co/terms-of-service
+
+## Key Facts
+
+- All tools are free, no signup required
+- Results are for educational use
+- Images processed locally in browser, not uploaded to servers
+- Supports degrees, radians, and gradians
+
+## Contact
+
+- Website: https://anglefinder.co
+- Email: support@anglefinder.co
+
+Last updated: 2026-05-23

@@ -5,6 +5,18 @@ export const metadata = {
   title: "Privacy Policy | AngleFinder",
   description: "AngleFinder privacy policy. Learn how we handle your data.",
   alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy | AngleFinder",
+    description: "AngleFinder privacy policy. No images uploaded to servers.",
+    url: "https://anglefinder.co/privacy-policy",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | AngleFinder",
+    description: "AngleFinder privacy policy. No images uploaded to servers.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function PrivacyPolicyPage() {

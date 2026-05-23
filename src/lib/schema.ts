@@ -112,3 +112,22 @@ export function generateSoftwareApplicationSchema({ name, description, url, appl
     },
   };
 }
+
+interface FAQQuestion {
+  name: string;
+  acceptedAnswer: string;
+}
+
+export function generateFAQPageSchema(questions: FAQQuestion[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: questions.map((q) => ({
+      "@type": "Question",
+      name: q.name,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: q.acceptedAnswer,
+      },
+    })),
+  };
+}

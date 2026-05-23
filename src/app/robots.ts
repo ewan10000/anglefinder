@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://anglefinder.co/sitemap.xml",
+    host: "https://anglefinder.co",
+    sitemap: "https://anglefinder.co/sitemap.xml\nContent-Signal: search=yes, ai-input=yes",
   };
 }

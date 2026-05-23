@@ -5,6 +5,18 @@ export const metadata = {
   title: "Terms of Service | AngleFinder",
   description: "AngleFinder terms of service. Read our usage terms and disclaimers.",
   alternates: { canonical: "/terms-of-service" },
+  openGraph: {
+    title: "Terms of Service | AngleFinder",
+    description: "AngleFinder terms of service. Free educational tools.",
+    url: "https://anglefinder.co/terms-of-service",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | AngleFinder",
+    description: "AngleFinder terms of service. Free educational tools.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function TermsOfServicePage() {
