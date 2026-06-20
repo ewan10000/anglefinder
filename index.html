@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Editor RSP — Free RSP Prompt Generator for Viral Photo Edits</title>
+    <meta name="description" content="Generate viral RSP-style photo editing prompts for free. Create AI prompts for Instagram Reels, YouTube Shorts, and TikTok. No sign-up required. Copy and paste instantly.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aieditorrsp.com/">
+    <meta property="og:title" content="AI Editor RSP — Free RSP Prompt Generator for Viral Photo Edits">
+    <meta property="og:description" content="Generate viral RSP-style photo editing prompts for free. Create AI prompts for Instagram Reels, YouTube Shorts, and TikTok. No sign-up required.">
+    <meta property="og:url" content="https://aieditorrsp.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://aieditorrsp.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Editor RSP — Free RSP Prompt Generator for Viral Photo Edits">
+    <meta name="twitter:description" content="Generate viral RSP-style photo editing prompts for free. Create AI prompts for Instagram Reels, YouTube Shorts, and TikTok. No sign-up required.">
+    <meta name="twitter:image" content="https://aieditorrsp.com/og-image.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155',
+                            600: '#475569',
+                            500: '#64748B',
+                            400: '#94A3B8',
+                            300: '#CBD5E1',
+                            200: '#E2E8F0',
+                            100: '#F1F5F9',
+                            50: '#F8FAFC',
+                        },
+                        indigo: {
+                            500: '#6366F1',
+                            600: '#4F46E5',
+                        },
+                        cyan: {
+                            400: '#22D3EE',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366F1 0%, #22D3EE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .prompt-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+        .category-chip.active {
+            background: #6366F1;
+            color: white;
+        }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">R</span>
+                    </div>
+                    <span class="font-bold text-lg">AI Editor RSP</span>
+                </div>
+                <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+                    <a href="#generator" class="hover:text-white transition-colors">Generator</a>
+                    <a href="#templates" class="hover:text-white transition-colors">Templates</a>
+                    <a href="#trending" class="hover:text-white transition-colors">Trending</a>
+                    <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+                </div>
+                <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                    Start Creating
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="animate-fade-in">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-medium mb-6 border border-indigo-500/20">
+                    🚀 Free RSP Prompt Generator
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                    Create <span class="gradient-text">Viral RSP Edits</span><br>
+                    in Seconds
+                </h1>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8">
+                    Generate AI photo editing prompts for Instagram Reels and YouTube Shorts. No sign-up required.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#generator" class="bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105">
+                        Generate Prompts Now
+                    </a>
+                    <a href="#templates" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all border border-slate-700">
+                        Browse Templates
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Section -->
+    <section id="generator" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">RSP Prompt Generator</h2>
+                <p class="text-slate-400">Select your options and generate a viral prompt instantly</p>
+            </div>
+            <div class="glass-card rounded-2xl p-6 sm:p-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
+                        <select id="subject" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="solo">Solo Portrait</option>
+                            <option value="couple">Couple Photo</option>
+                            <option value="group">Group Photo</option>
+                            <option value="pet">Pet Portrait</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Style</label>
+                        <select id="style" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="cinematic">Cinematic</option>
+                            <option value="vintage">Vintage</option>
+                            <option value="neon">Neon</option>
+                            <option value="minimal">Minimal</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Mood</label>
+                        <select id="mood" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="dramatic">Dramatic</option>
+                            <option value="happy">Happy</option>
+                            <option value="mysterious">Mysterious</option>
+                            <option value="romantic">Romantic</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Platform</label>
+                        <select id="platform" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="instagram">Instagram Reels</option>
+                            <option value="youtube">YouTube Shorts</option>
+                            <option value="tiktok">TikTok</option>
+                        </select>
+                    </div>
+                </div>
+                <button onclick="generatePrompt()" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-4 rounded-lg font-semibold text-lg transition-all hover:scale-[1.02] mb-6">
+                    Generate Prompt
+                </button>
+                <div id="promptResult" class="hidden bg-slate-800 rounded-lg p-6 border border-slate-700">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-semibold text-indigo-400">Generated Prompt</h3>
+                        <button onclick="copyPrompt()" class="copy-btn bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                            Copy
+                        </button>
+                    </div>
+                    <p id="promptText" class="text-slate-300 leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">RSP Templates</h2>
+                <p class="text-slate-400">Ready-to-use templates for CapCut and VN</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="prompt-card glass-card rounded-xl p-6 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                            <span class="text-indigo-400 font-bold">C</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Cinematic RSP</h3>
+                            <p class="text-sm text-slate-400">CapCut</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Dramatic lighting with film grain overlay</p>
+                    <button class="w-full bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg text-sm transition-colors">
+                        Use Template
+                    </button>
+                </div>
+                <div class="prompt-card glass-card rounded-xl p-6 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                            <span class="text-cyan-400 font-bold">N</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Neon Glow</h3>
+                            <p class="text-sm text-slate-400">VN</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Cyberpunk neon effect with glow overlay</p>
+                    <button class="w-full bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg text-sm transition-colors">
+                        Use Template
+                    </button>
+                </div>
+                <div class="prompt-card glass-card rounded-xl p-6 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center">
+                            <span class="text-pink-400 font-bold">V</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Vintage Film</h3>
+                            <p class="text-sm text-slate-400">CapCut</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Retro film look with dust and scratches</p>
+                    <button class="w-full bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg text-sm transition-colors">
+                        Use Template
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section id="trending" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Trending RSP Prompts</h2>
+                <p class="text-slate-400">Most popular prompts this week</p>
+            </div>
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl p-6 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            1
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Dramatic Solo Portrait</h3>
+                            <p class="text-sm text-slate-400">Cinematic lighting with shadow play</p>
+                        </div>
+                    </div>
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                        Try Now
+                    </button>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            2
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Neon Couple Edit</h3>
+                            <p class="text-sm text-slate-400">Cyberpunk couple with neon overlay</p>
+                        </div>
+                    </div>
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                        Try Now
+                    </button>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            3
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Vintage Group Photo</h3>
+                            <p class="text-sm text-slate-400">Retro film look with warm tones</p>
+                        </div>
+                    </div>
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                        Try Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-slate-400">Everything you need to know about RSP editing</p>
+            </div>
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="font-semibold mb-2">What is RSP editing?</h3>
+                    <p class="text-slate-400">RSP (Realistic Style Photo) editing is a viral trend on Instagram Reels and YouTube Shorts that transforms regular photos into cinematic, stylized images using AI prompts.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="font-semibold mb-2">Is this tool free?</h3>
+                    <p class="text-slate-400">Yes! AI Editor RSP is completely free to use. No sign-up required, no watermarks, and no limits on prompt generation.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="font-semibold mb-2">What platforms support RSP?</h3>
+                    <p class="text-slate-400">RSP editing works on Instagram Reels, YouTube Shorts, TikTok, and other short-form video platforms. Our prompts are optimized for all major platforms.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="font-semibold mb-2">Do I need CapCut or VN?</h3>
+                    <p class="text-slate-400">While our templates are designed for CapCut and VN, you can use the generated prompts with any photo editing app that supports AI prompts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">R</span>
+                        </div>
+                        <span class="font-bold text-lg">AI Editor RSP</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Free RSP prompt generator for viral photo editing. Create stunning edits in seconds.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#generator" class="hover:text-white transition-colors">Prompt Generator</a></li>
+                        <li><a href="#templates" class="hover:text-white transition-colors">Templates</a></li>
+                        <li><a href="#trending" class="hover:text-white transition-colors">Trending</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Style Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-400">
+                <p> 2024 AI Editor RSP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function generatePrompt() {
+            const subject = document.getElementById('subject').value;
+            const style = document.getElementById('style').value;
+            const mood = document.getElementById('mood').value;
+            const platform = document.getElementById('platform').value;
+            
+            const prompts = {
+                'solo-cinematic-dramatic-instagram': 'Create a dramatic cinematic portrait with high contrast lighting. Use film grain overlay, deep shadows, and golden hour tones. Perfect for Instagram Reels with a moody, professional look.',
+                'solo-cinematic-happy-instagram': 'Generate a joyful cinematic portrait with warm lighting and soft bokeh background. Add subtle film grain and vibrant colors for an uplifting Instagram Reels aesthetic.',
+                'couple-neon-romantic-tiktok': 'Design a romantic cyberpunk couple photo with neon pink and blue lighting. Add glow effects and futuristic elements for a viral TikTok aesthetic.',
+                'group-vintage-happy-youtube': 'Create a vintage-style group photo with warm sepia tones and film grain. Add dust particles and retro framing for nostalgic YouTube Shorts content.'
+            };
+            
+            const key = `${subject}-${style}-${mood}-${platform}`;
+            const prompt = prompts[key] || `Create a ${style} ${mood} ${subject} photo optimized for ${platform}. Use professional lighting, color grading, and composition techniques for viral RSP editing.`;
+            
+            document.getElementById('promptText').textContent = prompt;
+            document.getElementById('promptResult').classList.remove('hidden');
+        }
+        
+        function copyPrompt() {
+            const promptText = document.getElementById('promptText').textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                alert('Prompt copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
